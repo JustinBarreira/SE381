@@ -1,0 +1,25 @@
+Given(/^The "(.*?)" is alive and has less than (\d+) neighbors$/) do |cell, neighbors|                                                                                                                                                             
+	@cell = cell
+	@neighbors = neighbors
+end                                                                                                                                                                                                                                           
+                                                                                                                                                                                                                                              
+When(/^the generation is over$/) do                                                                                                                                                                                                           
+	@life = `ruby GameOfLife.rb #{@cell} #{@neighbors}`
+  raise('Command failed!') unless $?.success?                                                                                                                                                                           
+end                                                                                                                                                                                                                                           
+                                                                                                                                                                                                                                              
+Then(/^the cell is "(.*?)"$/) do |life|                                                                                                                                                                                                       
+	@life == life                                                                                                                                                                           
+end                                                                                                                                                                                                                                           
+                                                                                                                                                                                                                                              
+Given(/^The "(.*?)" is alive and has two or three live neighbors$/) do |cell|                                                                                                                                                                 
+  pending # express the regexp above with the code you wish you had                                                                                                                                                                           
+end                                                                                                                                                                                                                                           
+                                                                                                                                                                                                                                              
+Given(/^The "(.*?)" is alive and has more than (\d+) neighbors$/) do |cell, neighbors|                                                                                                                                                             
+  pending # express the regexp above with the code you wish you had                                                                                                                                                                           
+end                                                                                                                                                                                                                                           
+                                                                                                                                                                                                                                              
+Given(/^The "(.*?)" is dead and has exactly (\d+) neighbors$/) do |cell, neighbors|                                                                                                                                                                
+  pending # express the regexp above with the code you wish you had                                                                                                                                                                           
+end
